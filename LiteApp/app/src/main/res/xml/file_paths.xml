@@ -1,0 +1,11 @@
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <files-path
+        name="mmt_js"
+        path="js/" />
+    <files-path
+        name="mmt_html"
+        path="html/" />
+    <files-path
+        name="mmt_images"
+        path="images/" />
+</paths>
