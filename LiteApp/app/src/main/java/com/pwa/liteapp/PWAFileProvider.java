@@ -1,4 +1,4 @@
-package com.mmt.liteapp;
+package com.pwa.liteapp;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -22,9 +22,9 @@ import java.io.OutputStream;
 /**
  * Created by anukalp on 9/1/17.
  */
-public class MMTFileProvider extends ContentProvider {
+public class PWAFileProvider extends ContentProvider {
 
-    private static final String TAG = "MMTFileProvider";
+    private static final String TAG = "PWAFileProvider";
     private static final int BACKGROUND_TASK_INITIALIZE = 0;
     private HandlerThread mBackgroundThread;
     private Handler mBackgroundHandler;

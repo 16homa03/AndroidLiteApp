@@ -1,4 +1,4 @@
-package com.mmt.liteapp;
+package com.pwa.liteapp;
 
 import android.webkit.WebResourceRequest;
 

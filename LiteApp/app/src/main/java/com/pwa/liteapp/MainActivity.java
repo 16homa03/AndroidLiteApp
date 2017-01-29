@@ -1,4 +1,4 @@
-package com.mmt.liteapp;
+package com.pwa.liteapp;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 public class MainActivity extends Activity {
 
     private static final String TAG = "MainActivity";
-    private MMTWebView mmtWebView;
+    private PWAWebView pwaWebView;
     private ProgressDialog progDailog;
 
     @Override
@@ -30,24 +30,25 @@ public class MainActivity extends Activity {
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         linearLayout.setOrientation(LinearLayout.VERTICAL);
 
-        mmtWebView = new MMTWebView(this);
+        pwaWebView = new PWAWebView(this);
 
-        mmtWebView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        WebSettings webSettings = mmtWebView.getSettings();
+        pwaWebView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+        WebSettings webSettings = pwaWebView.getSettings();
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
-        Log.i("anukalp", mmtWebView.getSettings().getUserAgentString());
+        Log.i("anukalp", pwaWebView.getSettings().getUserAgentString());
+
 
         progDailog = ProgressDialog.show(MainActivity.this, "Loading", "Please wait...", true);
         progDailog.setCancelable(false);
         progDailog.show();
 
-        mmtWebView.setWebViewClient(new WebViewClientImpl(getApplicationContext()));
+        pwaWebView.setWebViewClient(new WebViewClientImpl(getApplicationContext()));
 
-        // mmtWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
-        linearLayout.addView(mmtWebView);
+        // pwaWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        linearLayout.addView(pwaWebView);
         setContentView(linearLayout);
-        String baseUrl = "https://www.makemytrip.com/";
+        String baseUrl = "https://www.example.com/";
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
@@ -64,7 +65,7 @@ public class MainActivity extends Activity {
             try {
                 String data = readFile("pwa/dist/v2/main/index.html");
                 String mimeType = "text/html";
-                mmtWebView.loadDataWithBaseURL(baseUrl, data, mimeType, "UTF-8", null);
+                pwaWebView.loadDataWithBaseURL(baseUrl, data, mimeType, "UTF-8", null);
                 progDailog.dismiss();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -97,11 +98,11 @@ public class MainActivity extends Activity {
             try {
                 String htmlFile = readFile(htmlpath);
                 String js = "javascript:" + successCallback + "(\"" + htmlpath + ',' + htmlFile + "\")";
-                mmtWebView.loadUrl(js);
+                pwaWebView.loadUrl(js);
             } catch (IOException e) {
                 e.printStackTrace();
                 String js = "javascript:" + errorCallback + "(\"" + htmlpath + "\")";
-                mmtWebView.loadUrl(js);
+                pwaWebView.loadUrl(js);
             }
         }
 
@@ -137,8 +138,8 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (mmtWebView.canGoBack()) {
-            mmtWebView.goBack();
+        if (pwaWebView.canGoBack()) {
+            pwaWebView.goBack();
             return;
         }
         super.onBackPressed();

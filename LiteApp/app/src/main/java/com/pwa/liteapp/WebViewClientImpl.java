@@ -1,4 +1,4 @@
-package com.mmt.liteapp;
+package com.pwa.liteapp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -64,7 +64,7 @@ public class WebViewClientImpl extends WebViewClient {
         Log.d(Constants.LOG_TAG, "shouldInterceptRequest :: " + request.getUrl() + " , " + request.getMethod() + ", " + request.getRequestHeaders());
         String mimeType = "text/html";
         if (request.getMethod().equals("GET")) {
-            if (Constants.shouldServeNetworkRequest(request)) {
+            if (Constants.shouldInterceptNetworkRequest(request)) {
                 String filePath = request.getUrl().getPath().toString();
                 if (filePath.contains("screen")) {
                     return this.dynamicContentCache.cacheAjaxResponse(request);

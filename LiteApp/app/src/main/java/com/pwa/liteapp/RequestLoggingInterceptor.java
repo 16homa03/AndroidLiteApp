@@ -1,4 +1,4 @@
-package com.mmt.liteapp;
+package com.pwa.liteapp;
 
 import java.io.IOException;
 import java.util.logging.Logger;
