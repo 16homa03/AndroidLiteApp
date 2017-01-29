@@ -1,4 +1,4 @@
-# Basic prototype for Android Lite app with embeded makemytrip pwa application with network proxy.
+# Basic prototype for Android Lite app with embeded pwa application with network proxy.
 
 FileProvider for serving static content from internal fileSystem. It helps serves static content like html's/css/js from local file system which helps avoiding serving from cdn.
 
