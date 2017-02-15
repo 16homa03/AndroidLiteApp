@@ -1,4 +1,6 @@
-# Basic prototype for Android Lite app with embeded pwa application in Web View and Provisoned Service Worker with android and okhttp components.
+# Basic prototype for Android Lite app(~700kb) with embeded pwa application in Web View and Provisoned Service Worker with android and okhttp components.
+
+The apk size is ~700kb and supports all phones above Gingerbread.
 
 Networkinterceptor is used to serve the static and dynamic content through StaticCache and DynamicCache resolver, and could work as a potential replacement for service worker for non supported devices.
 
