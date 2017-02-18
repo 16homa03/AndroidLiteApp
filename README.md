@@ -1,4 +1,4 @@
-# Basic prototype for Android Lite app(~700kb) with embeded pwa application in Web View and Provisoned Service Worker with android and okhttp components.
+# Basic prototype for Android Lite app(~700kb) with embeded pwa application in Web View and provisoned with android and okhttp components. (Removed service worker from pwa app and written custom wrapper with android and okio network library, which supports all devices above gingerbread).
 
 The apk size is ~700kb and supports all phones above Gingerbread.
 
