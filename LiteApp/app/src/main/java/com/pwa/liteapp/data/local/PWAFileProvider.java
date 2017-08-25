@@ -1,4 +1,4 @@
-package com.pwa.liteapp;
+package com.pwa.liteapp.data.local;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -85,7 +85,7 @@ public class PWAFileProvider extends ContentProvider {
             String filename = path.substring(index + 1, path.length());
             String filepath = path.substring(0, index);
             File internalFile = new File(getContext().getFilesDir(), path);
-            if(internalFile.exists()) {
+            if (internalFile.exists()) {
                 return false;
             }
             if (!internalFile.getParentFile().exists()) {
@@ -132,7 +132,7 @@ public class PWAFileProvider extends ContentProvider {
             case BACKGROUND_TASK_INITIALIZE:
                 try {
                     // push some files to the files dir as an example
-                   listAssetFiles(getContext().getAssets(), "pwa");
+                    listAssetFiles(getContext().getAssets(), "pwa");
                 } catch (Exception e) {
                     Log.e("Main", "error with copying files", e);
                 }

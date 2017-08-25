@@ -21,3 +21,10 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+// Define versions in a single place
+ext {
+
+    javax_annotation = '1.0'
+    daggerVersion = '2.0'
+    googleDaggerVersion = '2.9'
+}

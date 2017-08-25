@@ -1,9 +1,11 @@
-package com.pwa.liteapp;
+package com.pwa.liteapp.data.sw.toolbox;
 
 import android.content.Context;
 import android.util.Log;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
+
+import com.pwa.liteapp.data.network.HttpClient;
 
 import java.io.File;
 import java.io.IOException;

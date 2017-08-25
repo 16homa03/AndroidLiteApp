@@ -1,4 +1,4 @@
-package com.pwa.liteapp;
+package com.pwa.liteapp.webview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

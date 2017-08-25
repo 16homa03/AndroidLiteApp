@@ -1,4 +1,4 @@
-package com.pwa.liteapp;
+package com.pwa.liteapp.data.network;
 
 import java.io.IOException;
 import java.util.logging.Logger;

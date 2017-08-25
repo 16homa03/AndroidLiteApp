@@ -1,4 +1,4 @@
-package com.pwa.liteapp;
+package com.pwa.liteapp.webview;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,10 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.pwa.liteapp.data.sw.toolbox.DynamicContentCache;
+import com.pwa.liteapp.data.sw.toolbox.StaticContentCache;
+import com.pwa.liteapp.utils.AppConstants;
 
 /**
  * Created by anukalp on 16/1/17.
@@ -49,7 +53,7 @@ public class WebViewClientImpl extends WebViewClient {
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
         Log.d("anukalp", "request.getUrl()" + request.getUrl());
-        if (request.getUrl().toString().indexOf("makemytrip.com") > -1) {
+        if (request.getUrl().toString().indexOf("example.com") > -1) {
             return false;
         }
 
@@ -61,10 +65,10 @@ public class WebViewClientImpl extends WebViewClient {
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view,
                                                       WebResourceRequest request) {
-        Log.d(Constants.LOG_TAG, "shouldInterceptRequest :: " + request.getUrl() + " , " + request.getMethod() + ", " + request.getRequestHeaders());
+        Log.d(AppConstants.LOG_TAG, "shouldInterceptRequest :: " + request.getUrl() + " , " + request.getMethod() + ", " + request.getRequestHeaders());
         String mimeType = "text/html";
         if (request.getMethod().equals("GET")) {
-            if (Constants.shouldInterceptNetworkRequest(request)) {
+            if (AppConstants.shouldInterceptNetworkRequest(request)) {
                 String filePath = request.getUrl().getPath().toString();
                 if (filePath.contains("screen")) {
                     return this.dynamicContentCache.cacheAjaxResponse(request);
